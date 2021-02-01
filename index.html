@@ -55,7 +55,23 @@
 	</form>
 
 	<script>
-		// Your code goes here...
+        // get password input and checkbox
+        const passwordInput = document.querySelector('#password');
+        const checkbox = document.querySelector('#show-password');
+
+        const togglePasswordVisibility = (e) => {
+            // get checkbox state:
+            // checked or not when clicked or page loads
+            const checkboxChecked = e.target.checked || checkbox.checked;
+            
+            // change input type depending on whether checkbox is checked or not
+            checkboxChecked ? passwordInput.type='text' : passwordInput.type='password';
+        };
+
+        // set-up event listeners
+        checkbox.addEventListener('change', togglePasswordVisibility);
+        window.addEventListener('load', togglePasswordVisibility);
+
 	</script>
 </body>
 </html>
